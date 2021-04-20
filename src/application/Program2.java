@@ -21,13 +21,19 @@ public class Program2 {
 		Department department = departmentDao.findById(id);
 		System.out.println("Search Id: " + department.getId() + " - " + department.getName());
 		
-		
+		System.out.println();
 		System.out.println("=== Test 2: Department findAll ===");
 		List<Department> list = new ArrayList<Department>();
 		list = departmentDao.findAll();
 		for(Department obj : list) {
 			System.out.println(obj);
 		}
+		System.out.println();
+		System.out.println("=== Test 2: Department Insert ===");
+		Department newDepartment = new Department(5, "Food");
+		departmentDao.insert(newDepartment);
+		System.out.println("New Department " + newDepartment);
+		
 		
 		sc.close();
 	}
