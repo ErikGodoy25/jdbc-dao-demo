@@ -66,12 +66,6 @@ public class DepartmentDaoJDBC implements DepartmentDao {
 	}
 
 	@Override
-	public List<Seller> findByDepartment(Department department) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public List<Department> findAll() {
 		// TODO Auto-generated method stub
 		return null;
