@@ -57,13 +57,47 @@ public class DepartmentDaoJDBC implements DepartmentDao {
 
 	@Override
 	public void update(Department obj) {
-		// TODO Auto-generated method stub
+		PreparedStatement ps = null;
+		
+		try {
+
+			ps = conn.prepareStatement("UPDATE department "+ "SET NAME = ? " + "WHERE id = ?");
+
+			ps.setInt(2, obj.getId());
+			ps.setString(1, obj.getName());
+			
+			ps.executeUpdate();
+			
+
+		} 
+		catch (SQLException e) {
+			throw new DbException(e.getMessage());
+		} 
+		finally {
+			DB.closeStatement(ps);
+		}
 		
 	}
 
 	@Override
 	public void deleteById(Integer id) {
-		// TODO Auto-generated method stub
+		PreparedStatement ps = null;
+		try {
+
+			ps = conn.prepareStatement("DELETE FROM department " + "WHERE Id  = ?");
+
+			ps.setInt(1, id);
+			
+			ps.executeUpdate();
+			
+
+		} 
+		catch (SQLException e) {
+			throw new DbException(e.getMessage());
+		} 
+		finally {
+			DB.closeStatement(ps);
+		}
 		
 	}
 
